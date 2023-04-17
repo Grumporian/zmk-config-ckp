@@ -6,37 +6,180 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 
-/ {
+/ {	
+	macros {
+        alt_small_oe: alt_small_oe {
+            label = "alt_small_oe";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N1 &kp KP_N4 &kp KP_N8>
+				, <&macro_release &kp LALT>
+				;
+        };
+		alt_small_ue: alt_small_ue {
+            label = "alt_small_ue";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N1 &kp KP_N2 &kp KP_N9>
+				, <&macro_release &kp LALT>
+				;
+        };
+		alt_small_ae: alt_small_ae {
+            label = "alt_small_ae";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N1 &kp KP_N3 &kp KP_N2>
+				, <&macro_release &kp LALT>
+				;
+        };
+		alt_cap_oe: alt_cap_oe {
+            label = "alt_cap_oe";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N1 &kp KP_N5 &kp KP_N3>
+				, <&macro_release &kp LALT>
+				;
+        };
+		alt_cap_ue: alt_cap_ue {
+            label = "alt_cap_ue";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N1 &kp KP_N5 &kp KP_N4>
+				, <&macro_release &kp LALT>
+				;
+        };
+		alt_cap_ae: alt_cap_ae {
+            label = "alt_cap_ae";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N1 &kp KP_N4 &kp KP_N2>
+				, <&macro_release &kp LALT>
+				;
+        };
+	alt_scharfes_s: alt_scharfes_s {
+            label = "alt_scharfes_s";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N3>
+				, <&macro_release &kp LALT>
+				;
+        };
+	alt_euro: alt_euro {
+            label = "alt_euro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N8>
+				, <&macro_release &kp LALT>
+				;
+        };
+	alt_wave: alt_wave {
+            label = "alt_wave";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N1 &kp KP_N2 &kp KP_N6>
+				, <&macro_release &kp LALT>
+				;
+        };
+	alt_mue: alt_mue {
+            label = "alt_mue";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+			tap-ms = <40>;
+			bindings
+				= <&macro_press   &kp LALT>
+				, <&macro_tap     &kp KP_N2 &kp KP_N3 &kp KP_N0>
+				, <&macro_release &kp LALT>
+				;
+        };
+    };
+    
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
 				// ------------------------------------------------------------------------------------------------------------
-				// |  `  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |BKSP | INS		|
+				// |  `  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |BKSP | PLAY_PAUSE		|
 				// | TAB  |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |   \    | DEL		|
 				// | CAPS  |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |     ENTER    |PGUP	|
-				// |  SHIFT  |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  | /   |   SHIFT  | UP   | PGDN|
+				// |  SHIFT  |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  | /   |   2  | UP   | PGDN|
 				// |  CTL  |  WIN  |  ALT  |            SPACE               | ALT | 1    |  MENU| LEFT |  DOWN    | RIGHT	|
 				// ------------------------------------------------------------------------------------------------------------
 			bindings = <
 
-				&kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp  N8   &kp  N9   &kp N0 &kp MINUS &kp EQUAL &kp BKSP &kp DEL
-				&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp  I    &kp  O  &kp  P   &kp LBKT &kp RBKT  	&kp BSLH &kp INS
-				&kp CLCK  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp  K    &kp  L  &kp SEMI &kp SQT           	&kp RET &kp PG_UP
-				&kp LSHFT &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH   &kp RSHFT &kp UP &kp PG_DN
+				&kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp  N8   &kp  N9   &kp N0 &kp MINUS &kp EQUAL &kp BKSP &kp C_PLAY_PAUSE
+				&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Z  &kp U  &kp  I    &kp  O  &kp  P   &kp LBKT &kp RBKT  	&kp BSLH &kp HOME
+				&kp CLCK  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp  K    &kp  L  &kp SEMI &kp SQT           	&kp RET &kp DEL
+				&kp LSHFT &kp Y  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH   &mo 2 &kp UP &kp END 
 				&kp LCTRL &kp LGUI &kp LALT            &kp SPACE                          &kp RALT  &mo 1 &kp RCTRL &kp LEFT &kp DOWN &kp RIGHT
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 		raise {
 			bindings = <
 				&kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp  F8   &kp  F9   &kp F10  &kp F11 &kp F12 &bl BL_TOG &rgb_ug RGB_TOG
-				&trans &trans &kp UP &trans &trans &trans &trans &trans &kp INS &trans &kp PSCRN &kp SLCK &kp PAUSE_BREAK &sys_reset &rgb_ug RGB_HUI
-				&trans    &kp LEFT &kp DOWN &kp RIGHT &trans &trans &trans &trans &trans &trans &kp HOME  &kp PG_UP   &bootloader &rgb_ug RGB_HUD
-				&kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &trans &trans &trans &trans &trans &kp END &kp PG_DN  &kp C_NEXT &trans &bl BL_INC
-				&bt BT_PRV &bt BT_NXT  &trans              &trans                            &trans   &trans   &trans &bt BT_CLR &trans &bl BL_DEC
+				&trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans &trans &trans &trans &ext_power EP_TOG &trans &trans &sys_reset &rgb_ug RGB_HUI
+				&trans   &kp C_PREV &kp C_SLEEP &kp C_NEXT &trans &trans &trans &trans &trans &trans &trans  &trans   &bootloader &rgb_ug RGB_HUD
+				&trans &trans &trans &bt BT_CLR &trans &trans &trans &trans &trans &trans &trans  &trans &rgb_ug RGB_BRI &bl BL_INC
+				&bt BT_PRV &bt BT_NXT  &bt BT_CLR	&trans                            &trans   &trans   &trans &kp C_PREV &rgb_ug RGB_BRD &kp C_NEXT
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+		};
+		german_small {
+			bindings = <
+				&trans &trans &trans &trans &trans &trans &trans &trans &trans   &trans   &trans &trans &trans &trans &trans
+				&trans  &trans  &trans  &alt_euro   &trans  &trans  &trans  &alt_small_ue  &trans    &alt_small_oe    &trans   &trans &alt_wave	&trans &trans
+				&trans  &alt_small_ae  &alt_scharfes_s  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans &trans       	&trans &trans
+				&mo 3 &alt_mue  &trans  &trans  &trans  &trans  &trans  &trans  &trans &trans &trans   &trans &trans &trans 
+				&trans &trans &trans            &trans                          &trans  &trans &trans &trans &trans &trans
+			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+		};
+		german_cap {
+			bindings = <
+				&trans &trans &trans &trans &trans &trans &trans &trans &trans   &trans   &trans &trans &trans &trans &trans
+				&trans  &trans  &trans  &alt_euro   &trans  &trans  &trans  &alt_cap_ue  &trans    &alt_cap_oe    &trans   &trans &trans  	&trans &trans
+				&trans  &alt_cap_ae  &alt_scharfes_s  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans &trans       	&trans &trans
+				&trans &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans &trans &trans   &trans &trans &trans 
+				&trans &trans &trans            &trans                          &trans  &trans &trans &trans &trans &trans
+			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 	};
 };
