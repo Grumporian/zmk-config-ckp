@@ -7,19 +7,222 @@
 
 
 / {	
-	// German Umlaut Macros (for US-International Layout)
-	#define MACRO_AUML &macro_press &kp QUOTE &kp A  // ä
-	#define MACRO_OUML &macro_press &kp QUOTE &kp O  // ö
-	#define MACRO_UUML &macro_press &kp QUOTE &kp U  // ü
-	#define MACRO_SHARP &macro_press &kp MINUS       // ß (German layout)
-	
-	// Euro Symbol (€)
-	#define MACRO_EURO &macro_press &kp RALT &kp E   // € (Right Alt + E on many layouts)
-	
-	// Tilde (~)
-	#define MACRO_TILDE &macro_press &kp RALT &kp N  // ~ (Right Alt + N on US-International)
+	macros {
+
+		oe: oe {
 
 
+            label = "oe";
+
+
+            compatible = "zmk,behavior-macro";
+
+
+            #binding-cells = <0>;
+
+
+            wait-ms = <40>;
+
+
+			tap-ms = <40>;
+
+
+			bindings
+
+
+				= <&macro_press   &kp QUOTE>
+
+
+				, <&macro_tap     &kp O>
+
+
+				, <&macro_release &kp QUOTE>
+
+
+				;
+
+
+        };
+
+
+		ue: ue {
+
+
+            label = "ue";
+
+
+            compatible = "zmk,behavior-macro";
+
+
+            #binding-cells = <0>;
+
+
+            wait-ms = <40>;
+
+
+			tap-ms = <40>;
+
+
+			bindings
+
+
+				= <&macro_press   &kp QUOTE>
+
+
+				, <&macro_tap     &kp U>
+
+
+				, <&macro_release &kp QUOTE>
+
+
+				;
+
+
+        };
+
+
+	ae: ae {
+
+
+            label = "ae";
+
+
+            compatible = "zmk,behavior-macro";
+
+
+            #binding-cells = <0>;
+
+
+            wait-ms = <40>;
+
+
+			tap-ms = <40>;
+
+
+			bindings
+
+
+				= <&macro_press   &kp QUOTE>
+
+
+				, <&macro_tap     &kp A>
+
+
+				, <&macro_release &kp QUOTE>
+
+
+				;
+
+
+        };
+
+
+	scharfes_s: scharfes_s {
+
+
+            label = "scharfes_s";
+
+
+            compatible = "zmk,behavior-macro";
+
+
+            #binding-cells = <0>;
+
+
+            wait-ms = <40>;
+
+
+			tap-ms = <40>;
+
+
+			bindings
+
+
+				= <&macro_press   &kp RALT>
+
+
+				, <&macro_tap     &kp S>
+
+
+				, <&macro_release &kp RALT>
+
+
+				;
+
+
+        };
+
+
+	euro: euro {
+
+
+            label = "euro";
+
+
+            compatible = "zmk,behavior-macro";
+
+
+            #binding-cells = <0>;
+
+
+            wait-ms = <40>;
+
+
+			tap-ms = <40>;
+
+
+			bindings
+
+
+				= <&macro_press   &kp RALT>
+
+
+				, <&macro_tap     &kp E>
+
+
+				, <&macro_release &kp RALT>
+
+
+				;
+
+
+        };
+
+
+	wave: wave {
+
+
+            label = "wave";
+
+
+            compatible = "zmk,behavior-macro";
+
+
+            #binding-cells = <0>;
+
+
+            wait-ms = <40>;
+
+
+			tap-ms = <40>;
+
+
+			bindings
+
+
+				= <&macro_press   &kp RALT>
+
+
+				, <&macro_tap     &kp N>
+
+
+				, <&macro_release &kp RALT>
+
+
+				;
+
+
+        };
     
 	keymap {
 		compatible = "zmk,keymap";
@@ -52,12 +255,12 @@
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
-		german_small {
+		german {
 			bindings = <
-				&MACRO_TILDE &trans &trans &trans &trans &trans &trans &trans &trans   &trans   &trans &trans &trans &trans &trans
-				&trans  &trans  &trans  &MACRO_EURO   &trans  &trans  &trans  &MACRO_UUML  &trans    &MACRO_OUML    &trans   &trans &alt_wave	&trans &trans
-				&trans  &MACRO_AUML  &MACRO_SHARP  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans &trans       	&trans &trans
-				&trans &alt_mue  &trans  &trans  &trans  &trans  &trans  &trans  &trans &trans &trans   &trans &trans &trans 
+				&wave &trans &trans &trans &trans &trans &trans &trans &trans   &trans   &trans &trans &trans &trans &trans
+				&trans  &trans  &trans  &euro   &trans  &trans  &trans  &ue  &trans    &oe    &trans   &trans &trans	&trans &trans
+				&trans  &ae  &scharfes_s  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans &trans       	&trans &trans
+				&trans &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans &trans &trans   &trans &trans &trans 
 				&trans &trans &trans            &trans                          &trans  &trans &trans &trans &trans &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
