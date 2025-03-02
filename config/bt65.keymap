@@ -7,128 +7,19 @@
 
 
 / {	
-	macros {
-        alt_small_oe: alt_small_oe {
-            label = "alt_small_oe";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N1 &kp KP_N4 &kp KP_N8>
-				, <&macro_release &kp LALT>
-				;
-        };
-		alt_small_ue: alt_small_ue {
-            label = "alt_small_ue";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N1 &kp KP_N2 &kp KP_N9>
-				, <&macro_release &kp LALT>
-				;
-        };
-		alt_small_ae: alt_small_ae {
-            label = "alt_small_ae";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N1 &kp KP_N3 &kp KP_N2>
-				, <&macro_release &kp LALT>
-				;
-        };
-		alt_cap_oe: alt_cap_oe {
-            label = "alt_cap_oe";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N1 &kp KP_N5 &kp KP_N3>
-				, <&macro_release &kp LALT>
-				;
-        };
-		alt_cap_ue: alt_cap_ue {
-            label = "alt_cap_ue";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N1 &kp KP_N5 &kp KP_N4>
-				, <&macro_release &kp LALT>
-				;
-        };
-		alt_cap_ae: alt_cap_ae {
-            label = "alt_cap_ae";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N1 &kp KP_N4 &kp KP_N2>
-				, <&macro_release &kp LALT>
-				;
-        };
-	alt_scharfes_s: alt_scharfes_s {
-            label = "alt_scharfes_s";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N3>
-				, <&macro_release &kp LALT>
-				;
-        };
-	alt_euro: alt_euro {
-            label = "alt_euro";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N8>
-				, <&macro_release &kp LALT>
-				;
-        };
-	alt_wave: alt_wave {
-            label = "alt_wave";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N1 &kp KP_N2 &kp KP_N6>
-				, <&macro_release &kp LALT>
-				;
-        };
-	alt_mue: alt_mue {
-            label = "alt_mue";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-			tap-ms = <40>;
-			bindings
-				= <&macro_press   &kp LALT>
-				, <&macro_tap     &kp KP_N2 &kp KP_N3 &kp KP_N0>
-				, <&macro_release &kp LALT>
-				;
-        };
-    };
+	// German Umlaut Macros (for US-International Layout)
+	#define MACRO_AUML &macro_press &kp QUOTE &kp A  // ä
+	#define MACRO_OUML &macro_press &kp QUOTE &kp O  // ö
+	#define MACRO_UUML &macro_press &kp QUOTE &kp U  // ü
+	#define MACRO_SHARP &macro_press &kp MINUS       // ß (German layout)
+	
+	// Euro Symbol (€)
+	#define MACRO_EURO &macro_press &kp RALT &kp E   // € (Right Alt + E on many layouts)
+	
+	// Tilde (~)
+	#define MACRO_TILDE &macro_press &kp RALT &kp N  // ~ (Right Alt + N on US-International)
+
+
     
 	keymap {
 		compatible = "zmk,keymap";
@@ -163,20 +54,10 @@
 		};
 		german_small {
 			bindings = <
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans   &trans   &trans &trans &trans &trans &trans
-				&trans  &trans  &trans  &alt_euro   &trans  &trans  &trans  &alt_small_ue  &trans    &alt_small_oe    &trans   &trans &alt_wave	&trans &trans
-				&trans  &alt_small_ae  &alt_scharfes_s  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans &trans       	&trans &trans
-				&mo 3 &alt_mue  &trans  &trans  &trans  &trans  &trans  &trans  &trans &trans &trans   &trans &trans &trans 
-				&trans &trans &trans            &trans                          &trans  &trans &trans &trans &trans &trans
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-		german_cap {
-			bindings = <
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans   &trans   &trans &trans &trans &trans &trans
-				&trans  &trans  &trans  &alt_euro   &trans  &trans  &trans  &alt_cap_ue  &trans    &alt_cap_oe    &trans   &trans &trans  	&trans &trans
-				&trans  &alt_cap_ae  &alt_scharfes_s  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans &trans       	&trans &trans
-				&trans &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans &trans &trans   &trans &trans &trans 
+				&MACRO_TILDE &trans &trans &trans &trans &trans &trans &trans &trans   &trans   &trans &trans &trans &trans &trans
+				&trans  &trans  &trans  &MACRO_EURO   &trans  &trans  &trans  &MACRO_UUML  &trans    &MACRO_OUML    &trans   &trans &alt_wave	&trans &trans
+				&trans  &MACRO_AUML  &MACRO_SHARP  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans &trans       	&trans &trans
+				&trans &alt_mue  &trans  &trans  &trans  &trans  &trans  &trans  &trans &trans &trans   &trans &trans &trans 
 				&trans &trans &trans            &trans                          &trans  &trans &trans &trans &trans &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
