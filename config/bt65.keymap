@@ -45,7 +45,7 @@
 		umlaute {
 			bindings = <
 				&trans &trans &trans &trans &trans &trans &trans &trans &trans   &trans   &trans  &trans &trans &trans &trans
-				&trans &trans &trans &curr_euro &trans &trans &trans &de_ue &trans &de_oe &trans &trans &trans  &trans
+				&trans &trans &trans &curr_euro &trans &trans &trans &kp U_UMLAUT &trans &de_oe &trans &trans &trans  &trans
 				&trans    &de_ae &de_eszett &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans  &trans &trans
 				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans
 				&trans &trans  &trans              &trans                            &trans   &trans   &trans &trans &trans &trans
