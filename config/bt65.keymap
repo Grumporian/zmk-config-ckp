@@ -14,7 +14,7 @@
 			#binding-cells = <0>;
 			wait-ms = <40>;
 			tap-ms = <40>;
-			bindings = <&macro_tap &kp QUOTE &kp O>;
+			bindings = <&macro_tap &kp SQT &kp O>;
 		};
 
 		ue: ue {
@@ -23,7 +23,7 @@
 			#binding-cells = <0>;
 			wait-ms = <40>;
 			tap-ms = <40>;
-			bindings = <&macro_tap &kp QUOTE &kp U>;
+			bindings = <&macro_tap &kp SQT &kp U>;
 		};
 
 		ae: ae {
@@ -32,7 +32,7 @@
 			#binding-cells = <0>;
 			wait-ms = <40>;
 			tap-ms = <40>;
-			bindings = <&macro_tap &kp QUOTE &kp A>;
+			bindings = <&macro_tap &kp SQT &kp A>;
 		};
 
 		scharfes_s: scharfes_s {
