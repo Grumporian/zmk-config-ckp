@@ -50,7 +50,7 @@
 			#binding-cells = <0>;
 			wait-ms = <40>;
 			tap-ms = <40>;
-			bindings = <&macro_tap &kp RALT &kp 5>;
+			bindings = <&macro_tap &kp RALT &kp N5>;
 		};
 
 		wave: wave {
