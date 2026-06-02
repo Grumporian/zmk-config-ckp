@@ -114,3 +114,18 @@
 		};
 	};
 };
+
+// Hardware overrides on top of upstream polarityworks/bt65 board.
+&sensors {
+	sensors = <&encoder_3>;
+	triggers-per-rotation = <10>;
+};
+
+&encoder_1 { steps = <24>; };
+&encoder_2 { steps = <24>; };
+&encoder_3 { steps = <24>; };
+
+&kscan0 {
+	debounce-press-ms = <5>;
+	debounce-release-ms = <10>;
+};
