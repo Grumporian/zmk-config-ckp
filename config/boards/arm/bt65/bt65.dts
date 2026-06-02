@@ -52,6 +52,9 @@
 		label = "KSCAN";
 		diode-direction = "col2row";
 
+		debounce-press-ms = <5>;
+		debounce-release-ms = <10>;
+
 		col-gpios
 			= <&gpio1 11 GPIO_ACTIVE_HIGH>
 			, <&gpio1 10 GPIO_ACTIVE_HIGH>

@@ -12,7 +12,7 @@
 			label = "oe";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
-			wait-ms = <40>;
+			wait-ms = <60>;
 			tap-ms = <40>;
 			bindings = <&macro_press &kp LSHFT &macro_tap &kp SQT &macro_release &kp LSHFT &macro_tap &kp O>;
 		};
@@ -21,7 +21,7 @@
 			label = "ue";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
-			wait-ms = <40>;
+			wait-ms = <60>;
 			tap-ms = <40>;
 			bindings = <&macro_press &kp LSHFT &macro_tap &kp SQT &macro_release &kp LSHFT &macro_tap &kp U>;
 		};
@@ -30,7 +30,7 @@
 			label = "ae";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
-			wait-ms = <40>;
+			wait-ms = <60>;
 			tap-ms = <40>;
 			bindings = <&macro_press &kp LSHFT &macro_tap &kp SQT &macro_release &kp LSHFT &macro_tap &kp A>;
 		};
@@ -39,7 +39,7 @@
 			label = "scharfes_s";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
-			wait-ms = <40>;
+			wait-ms = <60>;
 			tap-ms = <40>;
 			bindings = <&macro_press &kp RALT &macro_tap &kp S &macro_release &kp RALT>;
 		};
@@ -48,25 +48,27 @@
 			label = "euro";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
-			wait-ms = <40>;
+			wait-ms = <60>;
 			tap-ms = <40>;
 			bindings = <&macro_press &kp RALT &macro_tap &kp N5 &macro_release &kp RALT>;
 		};
 
+		// Two taps because Shift+` is a dead tilde on US-Intl; second tap commits the literal ~.
 		wave: wave {
 			label = "wave";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
-			wait-ms = <40>;
+			wait-ms = <60>;
 			tap-ms = <40>;
-			bindings = <&macro_tap &kp LS(GRAVE)>;
+			bindings = <&macro_tap &kp LS(GRAVE) &kp LS(GRAVE)>;
 		};
 
+		// Two taps because ' is a dead acute on US-Intl; second tap commits literal ' (or " with Shift).
 		doubleSQT: doubleSQT {
 			label = "doubleSQT";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
-			wait-ms = <40>;
+			wait-ms = <60>;
 			tap-ms = <40>;
 			bindings = <&macro_tap &kp SQT &kp SQT>;
 		};
